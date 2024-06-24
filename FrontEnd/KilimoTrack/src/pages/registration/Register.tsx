@@ -56,25 +56,25 @@ const Register = () => {
           <Stack>
             <VStack as="header" spacing={6} mt={8}>
               <Heading as="h1">KilimoTrack</Heading>
-              <Text>Online Registration</Text>
+              <Text fontSize='xl' fontWeight={500}>Online Registration</Text>
             </VStack>
 
-            <Card variant="outline" minWidth="900px">
+            <Card variant="outline" minWidth="900px" >
               <CardBody>
                 <form>
                   <Stack>
                     {/* personal info */}
-                    <Text>Personal Information</Text>
+                    <Text fontSize='lg'>Personal Information</Text>
                     <Card>
                       <CardBody>
                         <HStack>
                           <FormControl isRequired>
                             <FormLabel size="sm">Full Name</FormLabel>
-                            <Input type="text" placeholder="Full Name" />
+                            <Input type="text" placeholder="Full Name"  focusBorderColor='brand.200'/>
                           </FormControl>
                           <FormControl isRequired>
                             <FormLabel size="sm">National ID</FormLabel>
-                            <Input type="number" placeholder="National ID" />
+                            <Input type="number" placeholder="National ID" focusBorderColor='brand.200' />
                           </FormControl>
                         </HStack>
 
@@ -83,25 +83,25 @@ const Register = () => {
                             <FormLabel size="sm">Phone Number</FormLabel>
                             <InputGroup>
                               <InputLeftAddon>+254</InputLeftAddon>
-                              <Input type="tel" placeholder="Phone Number" />
+                              <Input type="tel" placeholder="Phone Number" focusBorderColor='brand.200' />
                             </InputGroup>
                           </FormControl>
                           <FormControl>
                             <FormLabel>Email address</FormLabel>
-                            <Input type="email" placeholder="email" />
+                            <Input type="email" placeholder="email" focusBorderColor='brand.200' />
                           </FormControl>
                         </HStack>
                       </CardBody>
                     </Card>
 
                     {/* farm section */}
-                    <Text>Farm Details</Text>
+                    <Text fontSize='lg'>Farm Details</Text>
                     <Card>
                       <CardBody>
                         <HStack spacing={4}>
                           <FormControl>
                             <FormLabel>Farm Size</FormLabel>
-                            <NumberInput min={0.1} precision={1} step={0.1}>
+                            <NumberInput min={0.1} precision={1} step={0.1} focusBorderColor='brand.200'>
                               <NumberInputField />
                               <NumberInputStepper>
                                 <NumberIncrementStepper />
@@ -111,7 +111,7 @@ const Register = () => {
                           </FormControl>
                           <FormControl>
                             <FormLabel>Farm Location</FormLabel>
-                            <Select placeholder="Select County">
+                            <Select placeholder="Select County" >
                               {countiesInKenya.map((county) => (
                                 <option key={county.id}>{county.name}</option>
                               ))}
@@ -143,13 +143,14 @@ const Register = () => {
                             value={cropInput}
                             onChange={(e) => setCropInput(e.target.value)}
                             onKeyDown={handleInputCrop}
+                            focusBorderColor='brand.200'
                           />
                         </FormControl>
                       </CardBody>
                     </Card>
 
                     {/* password section */}
-                    <Text>Create Password</Text>
+                    <Text fontSize='lg'>Create Password</Text>
                     <Card>
                       <CardBody>
                         <FormControl>
@@ -158,11 +159,13 @@ const Register = () => {
                               <Input
                                 type={showPassword ? "text" : "password"}
                                 placeholder="Enter password"
+                                focusBorderColor='brand.200'
                               />
                               <InputRightElement width="5rem">
                                 <Button
                                   h="1.7rem"
                                   size="sm"
+                                  bg="brand.500"
                                   onClick={handleShowPassword}
                                 >
                                   {showPassword ? "Hide" : "Show"}
@@ -179,11 +182,13 @@ const Register = () => {
                               <Input
                                 type={showPassword ? "text" : "password"}
                                 placeholder="Confirm password"
+                                focusBorderColor='brand.200'
                               />
                               <InputRightElement width="5rem">
                                 <Button
                                   h="1.7rem"
                                   size="sm"
+                                  bg="brand.500"
                                   onClick={handleShowPassword}
                                 >
                                   {showPassword ? "Hide" : "Show"}
@@ -197,7 +202,7 @@ const Register = () => {
 
                     {/* Register Button */}
                     <Center>
-                      <Button size="md" width="150px" variant="solid">
+                      <Button size="md" width="150px" variant="solid" bg="brand.500">
                         Register
                       </Button>
                     </Center>
