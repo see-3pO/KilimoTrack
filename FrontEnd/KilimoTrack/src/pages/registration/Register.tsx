@@ -59,132 +59,148 @@ const Register = () => {
               <Text>Online Registration</Text>
             </VStack>
 
-            <Card variant="outline" minWidth="900px" >
+            <Card variant="outline" minWidth="900px">
               <CardBody>
                 <form>
                   <Stack>
                     {/* personal info */}
                     <Text>Personal Information</Text>
                     <Card>
-                      <HStack>
-                        <FormControl isRequired>
-                          <FormLabel size="sm">Full Name</FormLabel>
-                          <Input type="text" placeholder="Full Name" />
-                        </FormControl>
-                        <FormControl isRequired>
-                          <FormLabel size="sm">National ID</FormLabel>
-                          <Input type="number" placeholder="National ID" />
-                        </FormControl>
-                      </HStack>
+                      <CardBody>
+                        <HStack>
+                          <FormControl isRequired>
+                            <FormLabel size="sm">Full Name</FormLabel>
+                            <Input type="text" placeholder="Full Name" />
+                          </FormControl>
+                          <FormControl isRequired>
+                            <FormLabel size="sm">National ID</FormLabel>
+                            <Input type="number" placeholder="National ID" />
+                          </FormControl>
+                        </HStack>
 
-                      <HStack>
-                        <FormControl isRequired>
-                          <FormLabel size="sm">Phone Number</FormLabel>
-                          <InputGroup>
-                            <InputLeftAddon>+254</InputLeftAddon>
-                            <Input type="tel" placeholder="Phone Number" />
-                          </InputGroup>
-                        </FormControl>
-                        <FormControl>
-                          <FormLabel>Email address</FormLabel>
-                          <Input type="email" placeholder="email" />
-                        </FormControl>
-                      </HStack>
+                        <HStack mt={4}>
+                          <FormControl isRequired>
+                            <FormLabel size="sm">Phone Number</FormLabel>
+                            <InputGroup>
+                              <InputLeftAddon>+254</InputLeftAddon>
+                              <Input type="tel" placeholder="Phone Number" />
+                            </InputGroup>
+                          </FormControl>
+                          <FormControl>
+                            <FormLabel>Email address</FormLabel>
+                            <Input type="email" placeholder="email" />
+                          </FormControl>
+                        </HStack>
+                      </CardBody>
                     </Card>
 
                     {/* farm section */}
                     <Text>Farm Details</Text>
                     <Card>
-                      <HStack spacing={4}>
-                        <FormControl>
-                          <FormLabel>Farm Size</FormLabel>
-                          <NumberInput min={0.1} precision={1} step={0.1}>
-                            <NumberInputField />
-                            <NumberInputStepper>
-                              <NumberIncrementStepper />
-                              <NumberDecrementStepper />
-                            </NumberInputStepper>
-                          </NumberInput>
-                        </FormControl>
-                        <FormControl>
-                          <FormLabel>Farm Location</FormLabel>
-                          <Select placeholder="Select County">
-                            {countiesInKenya.map((county) => (
-                              <option key={county.id}>{county.name}</option>
-                            ))}
-                          </Select>
-                        </FormControl>
-                      </HStack>
-                      <FormControl mt={4}>
-                        <FormLabel>Crops Grown</FormLabel>
-
-                        <HStack>
-                          {crops.map((crop) => (
-                            <Tag
-                              size="md"
-                              key={crop}
-                              borderRadius="full"
-                              variant="solid"
-                              colorScheme="green"
-                            >
-                              <TagLabel>{crop}</TagLabel>
-                              <TagCloseButton
-                                onClick={() => handleRemoveCrop(crop)}
-                              />
-                            </Tag>
-                          ))}
+                      <CardBody>
+                        <HStack spacing={4}>
+                          <FormControl>
+                            <FormLabel>Farm Size</FormLabel>
+                            <NumberInput min={0.1} precision={1} step={0.1}>
+                              <NumberInputField />
+                              <NumberInputStepper>
+                                <NumberIncrementStepper />
+                                <NumberDecrementStepper />
+                              </NumberInputStepper>
+                            </NumberInput>
+                          </FormControl>
+                          <FormControl>
+                            <FormLabel>Farm Location</FormLabel>
+                            <Select placeholder="Select County">
+                              {countiesInKenya.map((county) => (
+                                <option key={county.id}>{county.name}</option>
+                              ))}
+                            </Select>
+                          </FormControl>
                         </HStack>
+                        <FormControl mt={4}>
+                          <FormLabel>Crops Grown</FormLabel>
 
-                        <Input
-                          placeholder="Enter a crop and press Enter"
-                          value={cropInput}
-                          onChange={(e) => setCropInput(e.target.value)}
-                          onKeyDown={handleInputCrop}
-                        />
-                      </FormControl>
+                          <HStack>
+                            {crops.map((crop) => (
+                              <Tag
+                                size="md"
+                                key={crop}
+                                borderRadius="full"
+                                variant="solid"
+                                colorScheme="green"
+                              >
+                                <TagLabel>{crop}</TagLabel>
+                                <TagCloseButton
+                                  onClick={() => handleRemoveCrop(crop)}
+                                />
+                              </Tag>
+                            ))}
+                          </HStack>
+
+                          <Input
+                            placeholder="Enter a crop and press Enter"
+                            value={cropInput}
+                            onChange={(e) => setCropInput(e.target.value)}
+                            onKeyDown={handleInputCrop}
+                          />
+                        </FormControl>
+                      </CardBody>
                     </Card>
 
                     {/* password section */}
                     <Text>Create Password</Text>
                     <Card>
-                      <FormControl>
-                        <FormLabel>
-                          <InputGroup>
-                            <Input
-                              type={showPassword ? "text" : "password"}
-                              placeholder="Enter password"
-                            />
-                            <InputRightElement>
-                              <Button onClick={handleShowPassword}>
-                                {showPassword ? "Hide" : "Show"}
-                              </Button>
-                            </InputRightElement>
-                          </InputGroup>
-                        </FormLabel>
-                      </FormControl>
+                      <CardBody>
+                        <FormControl>
+                          <FormLabel>
+                            <InputGroup>
+                              <Input
+                                type={showPassword ? "text" : "password"}
+                                placeholder="Enter password"
+                              />
+                              <InputRightElement width="5rem">
+                                <Button
+                                  h="1.7rem"
+                                  size="sm"
+                                  onClick={handleShowPassword}
+                                >
+                                  {showPassword ? "Hide" : "Show"}
+                                </Button>
+                              </InputRightElement>
+                            </InputGroup>
+                          </FormLabel>
+                        </FormControl>
 
-                      {/*Confirm Password*/}
-                      <FormControl>
-                        <FormLabel>
-                          <InputGroup>
-                            <Input
-                              type={showPassword ? "text" : "password"}
-                              placeholder="Confirm password"
-                            />
-                            <InputRightElement>
-                              <Button onClick={handleShowPassword}>
-                                {showPassword ? "Hide" : "Show"}
-                              </Button>
-                            </InputRightElement>
-                          </InputGroup>
-                        </FormLabel>
-                      </FormControl>
+                        {/*Confirm Password*/}
+                        <FormControl>
+                          <FormLabel>
+                            <InputGroup>
+                              <Input
+                                type={showPassword ? "text" : "password"}
+                                placeholder="Confirm password"
+                              />
+                              <InputRightElement width="5rem">
+                                <Button
+                                  h="1.7rem"
+                                  size="sm"
+                                  onClick={handleShowPassword}
+                                >
+                                  {showPassword ? "Hide" : "Show"}
+                                </Button>
+                              </InputRightElement>
+                            </InputGroup>
+                          </FormLabel>
+                        </FormControl>
+                      </CardBody>
                     </Card>
 
                     {/* Register Button */}
-                    <Button size="md" variant="solid">
-                      Register
-                    </Button>
+                    <Center>
+                      <Button size="md" width="150px" variant="solid">
+                        Register
+                      </Button>
+                    </Center>
                   </Stack>
                 </form>
               </CardBody>
