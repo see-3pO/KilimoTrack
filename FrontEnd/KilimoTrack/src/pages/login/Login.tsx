@@ -3,18 +3,19 @@ import {
   Card,
   CardBody,
   Center,
-  FormControl,
-  FormLabel,
   Heading,
   Input,
-  InputGroup,
-  InputRightElement,
   Stack,
   Text,
   VStack,
 } from "@chakra-ui/react";
+import FormField from "../../components/FormField";
+import PasswordInput from "../../components/PasswordInput";
+import { useState } from "react";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const handleShowPassword = () => setShowPassword(!showPassword);
   return (
     <>
       <Center>
@@ -26,26 +27,15 @@ const Login = () => {
           <form>
             <Card minWidth="900px">
               <CardBody>
-                <FormControl>
-                  <FormLabel>Mkulima ID</FormLabel>
-                  <Input type="number" />
-                </FormControl>
-                <FormControl mt={4}>
-                  <FormLabel>Enter Password</FormLabel>
-                  <InputGroup>
-                    <Input type="password" />
-                    <InputRightElement mr={2}>
-                      <Button h="1.7rem" size="sm">
-                        Show
-                      </Button>
-                    </InputRightElement>
-                  </InputGroup>
-                </FormControl>
+                <FormField label="Mkulima ID">
+                <Input type="number" name="mkulimaNo" />
+                </FormField>
+                <PasswordInput label="Enter Password" showPassword={showPassword} onToggle={handleShowPassword} />
               </CardBody>
             </Card>
             {/* Login Button */}
             <Center>
-              <Button size="md" width="150px" variant="solid" bg="brand.500">
+              <Button type="submit" size="md" width="150px" variant="solid" bg="brand.500">
                 Login
               </Button>
             </Center>
