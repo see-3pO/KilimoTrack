@@ -16,6 +16,7 @@ import NavLink from "./NavLink";
 import navIcons from "../constants/navIcons";
 import NavMenu from "./NavMenu";
 import FloatingSearchBar from "./FloatingSearchBar";
+import ProfileMenuOff from "./ProfileMenuOff";
 
 const links = [
   { label: "Shop", href: "/shop" },
@@ -52,6 +53,7 @@ const NavBar = () => {
           <Flex justifyContent={"space-between"} gap={6}>
             <HStack gap={6} as="nav" display={{ base: "none", md: "flex" }}>
               <FloatingSearchBar />
+              <ProfileMenuOff />
               {navIcons.map((icon) => {
                 return (
                   <List key={icon.label}>

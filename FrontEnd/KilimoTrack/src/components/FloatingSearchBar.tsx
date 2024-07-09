@@ -4,7 +4,6 @@ import {
   InputGroup,
   InputLeftElement,
   Modal,
-  ModalCloseButton,
   ModalContent,
   ModalOverlay,
   useDisclosure,
