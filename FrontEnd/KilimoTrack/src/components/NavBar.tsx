@@ -3,21 +3,19 @@ import {
   Flex,
   Heading,
   HStack,
-  IconButton,
   Link,
   List,
   ListIcon,
   ListItem,
   Text,
   useColorModeValue,
-  useDisclosure,
 } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
 
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import NavLink from "./NavLink";
 import navIcons from "../constants/navIcons";
 import NavMenu from "./NavMenu";
+import FloatingSearchBar from "./FloatingSearchBar";
 
 const links = [
   { label: "Shop", href: "/shop" },
@@ -53,9 +51,10 @@ const NavBar = () => {
 
           <Flex justifyContent={"space-between"} gap={6}>
             <HStack gap={6} as="nav" display={{ base: "none", md: "flex" }}>
+              <FloatingSearchBar />
               {navIcons.map((icon) => {
                 return (
-                  <List>
+                  <List key={icon.label}>
                     <ListItem as={Link} href={icon.path}>
                       <ListIcon as={icon.Icon} />
                     </ListItem>
