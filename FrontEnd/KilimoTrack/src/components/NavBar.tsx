@@ -17,6 +17,8 @@ import navIcons from "../constants/navIcons";
 import NavMenu from "./NavMenu";
 import FloatingSearchBar from "./FloatingSearchBar";
 import ProfileMenuOff from "./ProfileMenuOff";
+import { useState } from "react";
+import ProfileMenuOn from "./ProfileMenuOn";
 
 const links = [
   { label: "Shop", href: "/shop" },
@@ -25,6 +27,7 @@ const links = [
 ];
 
 const NavBar = () => {
+  const [loginState, setLoginState] = useState(false);
   return (
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
@@ -53,7 +56,8 @@ const NavBar = () => {
           <Flex justifyContent={"space-between"} gap={6}>
             <HStack gap={6} as="nav" display={{ base: "none", md: "flex" }}>
               <FloatingSearchBar />
-              <ProfileMenuOff />
+              {loginState ? <ProfileMenuOn /> : <ProfileMenuOff />}
+              {/* <ProfileMenuOff /> */}
               {navIcons.map((icon) => {
                 return (
                   <List key={icon.label}>
