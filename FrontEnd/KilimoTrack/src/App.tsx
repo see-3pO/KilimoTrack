@@ -1,14 +1,21 @@
 import "./App.css";
-import ColorModeSwitch from "./components/ColorModeSwitch";
-import NavBar from "./components/NavBar";
-import Login from "./pages/login/Login";
-import Register from "./pages/registration/Register";
+import HeroSection from "./pages/home/HeroSection";
+import Layout from "./components/Layout";
+import FeatureSection from "./pages/home/FeatureSection";
+import BenefitsSection from "./pages/home/BenefitsSection";
+import FAQSection from "./pages/home/FAQSection";
 // import TestForm from "./test/TestForm";
 
 function App() {
-  return(
+  return (
     <>
-      <NavBar />
+      <Layout>
+        <HeroSection />
+        <FeatureSection />
+        <BenefitsSection />
+        <FAQSection />
+      </Layout>
+      {/* <NavBar /> */}
     </>
   );
 }
