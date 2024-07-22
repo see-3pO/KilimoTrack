@@ -179,7 +179,7 @@ const CreatePass = () => {
               size="sm"
               onClick={handleClick}
             >
-             {showPassword ? <FaEyeSlash /> : <FaEye />}
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
             </Button>
           </InputRightElement>
         </InputGroup>
@@ -190,6 +190,7 @@ const CreatePass = () => {
 
 const RegForm = () => {
   const toast = useToast();
+  const id = "toast-id";
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(33.33);
   return (
@@ -251,13 +252,17 @@ const RegForm = () => {
                 w="7rem"
                 colorScheme="red"
                 onClick={() => {
-                  toast({
-                    title: "User Registered",
-                    description: "We've created your account for you.",
-                    status: "success",
-                    duration: 9000,
-                    isClosable: true,
-                  });
+                  if (!toast.isActive(id)) {
+                    toast({
+                      id,
+                      title: "User Registered",
+                      description: "We've created your account for you.",
+                      position: "top",
+                      status: "success",
+                      duration: 3000,
+                      isClosable: true,
+                    });
+                  }
                 }}
               >
                 Register
