@@ -14,6 +14,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { FaUser } from "react-icons/fa";
+import { Link as ReactRouterLink } from "react-router-dom";
 
 const ProfileMenuOff = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -32,13 +33,13 @@ const ProfileMenuOff = () => {
         <PopoverCloseButton />
         <PopoverBody>
           <Stack>
-            <Link>
+            <Link as={ReactRouterLink}>
               <Button>Sign in</Button>
             </Link>
 
             <HStack mt={4}>
               <Text>Don't have an account?</Text>
-              <Link>
+              <Link as={ReactRouterLink} to="/register">
                 <Button>Register</Button>
               </Link>
             </HStack>

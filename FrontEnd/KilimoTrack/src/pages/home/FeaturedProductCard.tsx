@@ -1,4 +1,4 @@
-import { Card, CardBody, Image } from "@chakra-ui/react";
+import { Button, Card, CardBody, CardFooter, Image } from "@chakra-ui/react";
 import tractorImage from "../../assets/images/tractorspic.jpg";
 
 const FeaturedProductCard = () => {
@@ -17,6 +17,9 @@ const FeaturedProductCard = () => {
           bottom="0"
         />
       </CardBody>
+      <CardFooter display="none">
+        <Button>Buy Now</Button>
+      </CardFooter>
     </Card>
   );
 };

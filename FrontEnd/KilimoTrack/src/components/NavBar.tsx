@@ -3,7 +3,7 @@ import {
   Flex,
   Heading,
   HStack,
-  Link,
+  Link as ChakraLink,
   List,
   ListIcon,
   ListItem,
@@ -11,6 +11,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
+import { Link as ReactRouterLink } from "react-router-dom";
 
 import NavLink from "./NavLink";
 import navIcons from "../constants/navIcons";
@@ -35,8 +36,10 @@ const NavBar = () => {
           <HStack spacing={4}>
             <NavMenu />
             <Box>
-              <Heading as={Link} fontSize="2xl">
-                KilimoTrack
+              <Heading fontSize="2xl">
+                <ChakraLink as={ReactRouterLink} to="/">
+                  KilimoTrack
+                </ChakraLink>
               </Heading>
             </Box>
           </HStack>
@@ -45,7 +48,7 @@ const NavBar = () => {
             <Box>
               <HStack as="nav" display={{ base: "none", md: "flex" }} gap={6}>
                 {links.map((link) => (
-                  <NavLink key={link.label}>
+                  <NavLink path={`${link.href}`} key={link.label}>
                     <Text fontWeight={"medium"}>{link.label}</Text>
                   </NavLink>
                 ))}
@@ -61,7 +64,7 @@ const NavBar = () => {
               {navIcons.map((icon) => {
                 return (
                   <List key={icon.label}>
-                    <ListItem as={Link} href={icon.path}>
+                    <ListItem as={ReactRouterLink} to={icon.path}>
                       <ListIcon as={icon.Icon} />
                     </ListItem>
                   </List>

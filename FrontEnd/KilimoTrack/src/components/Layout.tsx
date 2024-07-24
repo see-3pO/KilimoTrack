@@ -1,17 +1,19 @@
 import { Box, VStack } from "@chakra-ui/react";
-import React from "react";
+// import React from "react";
 import NavBar from "./NavBar";
+import { Outlet } from "react-router-dom";
+import Footer from "./Footer";
+// interface Props {
+//   children: React.ReactNode;
+// }
 
-interface Props {
-  children: React.ReactNode;
-}
-
-const Layout = ({ children }: Props) => {
+const Layout = () => {
   return (
     <Box>
       <VStack spacing={10} w="full" align="center">
         <NavBar />
-        {children}
+        <Outlet />
+        <Footer />
       </VStack>
     </Box>
   );

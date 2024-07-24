@@ -1,31 +1,50 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import HeroSection from "./pages/home/HeroSection";
-import Layout from "./components/Layout";
-import FeatureSection from "./pages/home/FeatureSection";
-import BenefitsSection from "./pages/home/BenefitsSection";
-import FAQSection from "./pages/home/FAQSection";
-import Footer from "./components/Footer";
-import RegForm from "./pages/registration/RegForm";
+import Home from "./pages/home/Home";
 import Shop from "./pages/shopping/Shop";
-import FeaturedProducts from "./pages/home/FeaturedProducts";
-// import TestForm from "./test/TestForm";
+import RegForm from "./pages/registration/RegForm";
+import Layout from "./components/Layout";
+
+const router = createBrowserRouter([
+  {
+    //parent route component
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/shop",
+        element: <Shop />,
+      },
+      {
+        path: "/register",
+        element: <RegForm />,
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
     <>
-      <Layout>
-        <HeroSection />
-        <FeatureSection />
-        <BenefitsSection />
-        <FeaturedProducts />
-        <FAQSection />
-        <Footer />
-      </Layout>
-      {/* <RegForm /> */}
-      {/* <NavBar /> */}
-      {/* <Shop /> */}
+      <RouterProvider router={router} />
     </>
   );
 }
 
 export default App;
+
+
+
+
+{
+  /* <RegForm /> */
+}
+{
+  /* <NavBar /> */
+}
+{
+  /* <Shop /> */
+}
