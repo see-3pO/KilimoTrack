@@ -3,7 +3,7 @@ import tractorImage from "../../assets/images/tractorspic.jpg";
 
 const FeaturedProductCard = () => {
   return (
-    <Card w={[200, 300, 400]} h={[200, 300, 400]}>
+    <Card h={{ base: "250px", sm: "300px", md: "350px", lg: "320px" }}>
       <CardBody>
         <Image
           src={tractorImage}
@@ -22,3 +22,5 @@ const FeaturedProductCard = () => {
 };
 
 export default FeaturedProductCard;
+
+// w={[200, 300, 400]} h={[200, 300, 400]}

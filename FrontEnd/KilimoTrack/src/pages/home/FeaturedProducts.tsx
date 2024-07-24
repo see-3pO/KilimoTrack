@@ -4,11 +4,11 @@ import FeaturedProductCard from "./FeaturedProductCard";
 const FeaturedProducts = () => {
   return (
     <Container maxW="container.xl" py={20}>
-      <Heading my={10} fontWeight={500} fontSize="2xl" align="center">
+      <Heading my={10} fontWeight={500} fontSize="2xl">
         Featured Products
       </Heading>
       <Box>
-        <SimpleGrid gap={2} templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(3, 1fr)"]}>
+        <SimpleGrid gap={2} minChildWidth={{base:"250px", sm: "300px", md: "350px", lg: "320px"}}>
           <FeaturedProductCard />
           <FeaturedProductCard />
           <FeaturedProductCard />
@@ -21,3 +21,10 @@ const FeaturedProducts = () => {
 };
 
 export default FeaturedProducts;
+
+// templateColumns={[
+//   "repeat(1, 1fr)",
+//   "repeat(2, 1fr)",
+//   "repeat(3, 1fr)",
+// ]}
+// gridTemplateColumns="repeat(auto-fit, minmax(300px, 1fr))"

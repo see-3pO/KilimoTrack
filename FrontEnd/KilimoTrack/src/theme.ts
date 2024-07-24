@@ -1,13 +1,13 @@
 import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
 
-const breakpoints = {
-  base: "0em",
-  sm: "30em", // 480px
-  customBreakpoint: "26.25em", // 420px
-  md: "48em", // 768px
-  lg: "62em", // 992px
-  xl: "80em", // 1280px
-};
+// const breakpoints = {
+//   base: "0em",
+//   sm: "30em", // 480px
+//   customBreakpoint: "26.25em", // 420px
+//   md: "48em", // 768px
+//   lg: "62em", // 992px
+//   xl: "80em", // 1280px
+// };
 
 // color mode configuration
 const config: ThemeConfig = {
@@ -17,7 +17,7 @@ const config: ThemeConfig = {
 
 // extending the theme
 const theme = extendTheme({
-  breakpoints,
+  // breakpoints,
   config,
   colors: {
     brand: {
