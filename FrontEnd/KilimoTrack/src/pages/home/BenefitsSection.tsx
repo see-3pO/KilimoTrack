@@ -1,4 +1,4 @@
-import { Container, SimpleGrid } from "@chakra-ui/react";
+import { Container, SimpleGrid, Text } from "@chakra-ui/react";
 import Benefit from "./Benefit";
 
 interface BenefitType {
@@ -37,6 +37,9 @@ const benefits: BenefitType[] = [
 const BenefitsSection = () => {
   return (
     <Container maxW="container.md" centerContent py={[8, 28]}>
+      <Text fontWeight={500} fontSize="2xl">
+        Benefits
+      </Text>
       <SimpleGrid column={2} spacingX={10} spacingY={20} minChildWidth="300px">
         {benefits.map(({ icon, title, description }, i: number) => (
           <Benefit

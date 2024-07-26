@@ -26,7 +26,12 @@ const ProfileMenuOff = () => {
       placement="right"
     >
       <PopoverTrigger>
-        <IconButton icon={<FaUser />} aria-label="user-icon" isRound={true} />
+        <IconButton
+          icon={<FaUser />}
+          aria-label="user-icon"
+          isRound={true}
+          size="sm"
+        />
       </PopoverTrigger>
       <PopoverContent>
         <PopoverArrow />

@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import Shop from "./pages/shopping/Shop";
 import RegForm from "./pages/registration/RegForm";
 import Layout from "./components/Layout";
+import FeatureSection from "./pages/home/FeatureSection";
 
 const router = createBrowserRouter([
   {
@@ -19,10 +20,16 @@ const router = createBrowserRouter([
         element: <Shop />,
       },
       {
-        path: "/register",
-        element: <RegForm />,
-      },
+        path: "/features",
+        element: <FeatureSection />
+      }
+
     ],
+  },
+
+  {
+    path: "/register",
+    element: <RegForm />,
   },
 ]);
 

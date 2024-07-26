@@ -9,20 +9,23 @@ import {
   ListItem,
   Text,
   useColorModeValue,
+  Container,
 } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
 import { Link as ReactRouterLink } from "react-router-dom";
 
 import NavLink from "./NavLink";
-import navIcons from "../constants/navIcons";
 import NavMenu from "./NavMenu";
 import FloatingSearchBar from "./FloatingSearchBar";
 import ProfileMenuOff from "./ProfileMenuOff";
 import { useState } from "react";
 import ProfileMenuOn from "./ProfileMenuOn";
+import ShoppingCartLink from "./ShoppingCartLink";
+import NotificationLink from "./NotificationLink";
 
 const links = [
   { label: "Shop", href: "/shop" },
+  { label: "Features", href: "/features" },
   { label: "About", href: "/about" },
   { label: "Contact Us", href: "/contact" },
 ];
@@ -30,14 +33,24 @@ const links = [
 const NavBar = () => {
   const [loginState, setLoginState] = useState(false);
   return (
-    <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4} w="full">
+    <Container
+      maxW="container.xl"
+      pos="sticky"
+      top="0px"
+      backdropFilter="auto"
+      backdropBlur="6px"
+    >
+      <Box px={4} w="full" borderRadius="md">
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <HStack spacing={4}>
             <NavMenu />
-            <Box>
-              <Heading fontSize="2xl">
-                <ChakraLink as={ReactRouterLink} to="/">
+            <Box h="full">
+              <Heading fontSize="3xl">
+                <ChakraLink
+                  as={ReactRouterLink}
+                  to="/"
+                  _hover={{ textDecoration: "none" }}
+                >
                   KilimoTrack
                 </ChakraLink>
               </Heading>
@@ -46,38 +59,47 @@ const NavBar = () => {
 
           <HStack spacing={4} alignItems={"center"}>
             <Box>
-              <HStack as="nav" display={{ base: "none", md: "flex" }} gap={6}>
+              <HStack as="nav" display={{ base: "none", md: "flex" }} gap={10}>
                 {links.map((link) => (
                   <NavLink path={`${link.href}`} key={link.label}>
-                    <Text fontWeight={"medium"}>{link.label}</Text>
+                    <Text fontWeight="medium" fontSize="lg">
+                      {link.label}
+                    </Text>
                   </NavLink>
                 ))}
               </HStack>
             </Box>
           </HStack>
 
-          <Flex justifyContent={"space-between"} gap={6}>
-            <HStack gap={6} as="nav" display={{ base: "none", md: "flex" }}>
+          <Flex justifyContent={"space-between"} gap={4}>
+            <HStack gap={4} as="nav" display={{ base: "none", md: "flex" }}>
               <FloatingSearchBar />
               {loginState ? <ProfileMenuOn /> : <ProfileMenuOff />}
               {/* <ProfileMenuOff /> */}
-              {navIcons.map((icon) => {
-                return (
-                  <List key={icon.label}>
-                    <ListItem as={ReactRouterLink} to={icon.path}>
-                      <ListIcon as={icon.Icon} />
-                    </ListItem>
-                  </List>
-                );
-              })}
+              <ShoppingCartLink />
+              <NotificationLink />
             </HStack>
 
             <ColorModeSwitch />
           </Flex>
         </Flex>
       </Box>
-    </>
+    </Container>
   );
 };
 
 export default NavBar;
+
+// navbar background options
+//bg={useColorModeValue("gray.100", "gray.900")}
+
+//navicons for navigation
+// {navIcons.map((icon) => {
+//   return (
+//     <List key={icon.label}>
+//       <ListItem as={ReactRouterLink} to={icon.path}>
+//         <ListIcon as={icon.Icon} />
+//       </ListItem>
+//     </List>
+//   );
+// })}

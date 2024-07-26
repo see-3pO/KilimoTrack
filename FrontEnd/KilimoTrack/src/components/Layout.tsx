@@ -10,7 +10,7 @@ import Footer from "./Footer";
 const Layout = () => {
   return (
     <Box>
-      <VStack spacing={10} w="full" align="center">
+      <VStack spacing={2} w="full" align="center">
         <NavBar />
         <Outlet />
         <Footer />

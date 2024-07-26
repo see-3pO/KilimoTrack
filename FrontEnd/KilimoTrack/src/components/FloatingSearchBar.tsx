@@ -15,9 +15,11 @@ const FloatingSearchBar = () => {
   return (
     <>
       <IconButton
+        justifyContent="center"
         onClick={onOpen}
         icon={<FaSearch />}
         aria-label="Search Button"
+        size="sm"
         isRound={true}
       />
       <Modal isOpen={isOpen} onClose={onClose}>
