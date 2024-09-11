@@ -26,6 +26,7 @@ import NotificationLink from "./NotificationLink";
 const links = [
   { label: "Shop", href: "/shop" },
   { label: "Features", href: "/features" },
+  { label: "Orders", href: "/orders"},
   { label: "About", href: "/about" },
   { label: "Contact Us", href: "/contact" },
 ];
@@ -45,11 +46,12 @@ const NavBar = () => {
           <HStack spacing={4}>
             <NavMenu />
             <Box h="full">
-              <Heading fontSize="3xl">
+              <Heading fontSize={{base:"xl", sm: "2xl", md: "3xl"}} >
                 <ChakraLink
                   as={ReactRouterLink}
                   to="/"
                   _hover={{ textDecoration: "none" }}
+                  color="brand.500"
                 >
                   KilimoTrack
                 </ChakraLink>
@@ -62,7 +64,7 @@ const NavBar = () => {
               <HStack as="nav" display={{ base: "none", md: "flex" }} gap={10}>
                 {links.map((link) => (
                   <NavLink path={`${link.href}`} key={link.label}>
-                    <Text fontWeight="medium" fontSize="lg">
+                    <Text fontWeight="medium" fontSize={{base:"sm", sm: "md", md:"lg"}}>
                       {link.label}
                     </Text>
                   </NavLink>

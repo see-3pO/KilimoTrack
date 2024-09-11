@@ -5,31 +5,33 @@ import Shop from "./pages/shopping/Shop";
 import RegForm from "./pages/registration/RegForm";
 import Layout from "./components/Layout";
 import FeatureSection from "./pages/home/FeatureSection";
+import BenefitsSection from "./pages/home/BenefitsSection";
 
 const router = createBrowserRouter([
   {
-    //parent route component
+    path: "/", //root path
     element: <Layout />,
     children: [
       {
-        path: "/",
+        path: "/", //home page route
         element: <Home />,
+        children: [
+          {
+            path: "features",
+            element: <FeatureSection />,
+          },
+          {
+            path: "benefits",
+            element: <BenefitsSection />,
+          },
+        ],
       },
+
       {
-        path: "/shop",
+        path: "shop",
         element: <Shop />,
       },
-      {
-        path: "/features",
-        element: <FeatureSection />
-      }
-
     ],
-  },
-
-  {
-    path: "/register",
-    element: <RegForm />,
   },
 ]);
 
@@ -42,16 +44,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-{
-  /* <RegForm /> */
-}
-{
-  /* <NavBar /> */
-}
-{
-  /* <Shop /> */
-}

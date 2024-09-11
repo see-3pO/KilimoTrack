@@ -8,10 +8,22 @@ const Home = () => {
   return (
     <>
       <HeroSection />
-      <FeatureSection />
-      <BenefitsSection />
-      <FeaturedProducts />
-      <FAQSection />
+      <section id="features">
+        <FeatureSection />
+      </section>
+
+      <section id="benefits">
+        <BenefitsSection />
+      </section>
+
+      <section id="featured-products">
+        <FeaturedProducts />
+      </section>
+
+      <section id="faq">
+        <FAQSection />
+      </section>
+
     </>
   );
 };

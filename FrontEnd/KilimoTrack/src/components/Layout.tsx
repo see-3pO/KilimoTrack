@@ -1,13 +1,23 @@
 import { Box, VStack } from "@chakra-ui/react";
 // import React from "react";
 import NavBar from "./NavBar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "./Footer";
+import SideBar from "../test/SideBar";
 // interface Props {
 //   children: React.ReactNode;
 // }
 
+import { useLayoutEffect } from "react";
+
+
 const Layout = () => {
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo({ top:0, left:0, behavior:"instant"});
+}, [location.pathname]);
+
   return (
     <Box>
       <VStack spacing={2} w="full" align="center">

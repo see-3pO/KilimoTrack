@@ -22,7 +22,7 @@ const FAQSection = () => {
     <Container py={28} maxW="container.md">
       <Box w="full">
         <VStack w="full" spacing={10}>
-          <Text fontWeight={500} fontSize="2xl" align="center">Frequently Asked Questions</Text>
+          <Text fontWeight={500} fontSize="2xl" align="center" color="brand.600">Frequently Asked Questions</Text>
           <FAQ items={faqs} />
         </VStack>
       </Box>

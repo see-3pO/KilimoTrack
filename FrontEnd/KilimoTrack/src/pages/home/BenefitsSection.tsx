@@ -37,7 +37,7 @@ const benefits: BenefitType[] = [
 const BenefitsSection = () => {
   return (
     <Container maxW="container.md" centerContent py={[8, 28]}>
-      <Text fontWeight={500} fontSize="2xl">
+      <Text fontWeight={500} fontSize="2xl"color="brand.600">
         Benefits
       </Text>
       <SimpleGrid column={2} spacingX={10} spacingY={20} minChildWidth="300px">

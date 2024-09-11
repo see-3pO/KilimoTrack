@@ -1,10 +1,11 @@
 import { Box, Button, Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import FeaturedProductCard from "./FeaturedProductCard";
+import { Link as ReactRouterLink } from "react-router-dom";
 
 const FeaturedProducts = () => {
   return (
     <Container maxW="container.xl" py={20}>
-      <Heading my={10} fontWeight={500} fontSize="2xl">
+      <Heading my={10} fontWeight={500} fontSize="2xl" color="brand.600">
         Featured Products
       </Heading>
       <Box>
@@ -15,7 +16,7 @@ const FeaturedProducts = () => {
         </SimpleGrid>
       </Box>
 
-      <Button my={8}>Shop Now</Button>
+      <Button as={ReactRouterLink} to="/shop" my={8}  bg={"brand.400"} _hover={{ bg: "brand.500"}} rounded="full">Shop Now</Button>
     </Container>
   );
 };

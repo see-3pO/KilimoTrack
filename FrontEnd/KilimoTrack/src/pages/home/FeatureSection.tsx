@@ -44,7 +44,7 @@ const FeatureSection = () => {
   return (
     <Container maxW="container.xl">
       <VStack w="full" id="features" spacing={16} py={[16, 0]}>
-        <Text fontWeight={500} fontSize="2xl">
+        <Text fontWeight={500} fontSize="2xl" color="brand.600">
           Features
         </Text>
         {features.map(

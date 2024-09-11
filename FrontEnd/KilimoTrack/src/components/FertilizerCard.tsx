@@ -20,7 +20,7 @@ const FertilizerCard = () => {
       <CardFooter justifyContent={"center"}>
         <ButtonGroup gap="2">
             <Button>Learn More</Button>
-            <Button>Place Order</Button>
+            <Button colorScheme="brand">Place Order</Button>
         </ButtonGroup>
       </CardFooter>
     </Card>
