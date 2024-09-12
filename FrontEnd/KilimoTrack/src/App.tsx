@@ -12,27 +12,16 @@ const router = createBrowserRouter([
     path: "/", //root path
     element: <Layout />,
     children: [
-      {
-        path: "/", //home page route
-        element: <Home />,
-        children: [
-          {
-            path: "features",
-            element: <FeatureSection />,
-          },
-          {
-            path: "benefits",
-            element: <BenefitsSection />,
-          },
-        ],
-      },
-
-      {
-        path: "shop",
-        element: <Shop />,
-      },
+      { path: "/", element: <Home /> },
+      { path: "shop", element: <Shop /> },
     ],
   },
+      
+  {
+    path: "/register",
+    element: <RegForm />
+  },
+
 ]);
 
 function App() {

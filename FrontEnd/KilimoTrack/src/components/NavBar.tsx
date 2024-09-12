@@ -25,7 +25,7 @@ import NotificationLink from "./NotificationLink";
 
 const links = [
   { label: "Shop", href: "/shop" },
-  { label: "Features", href: "/features" },
+  { label: "Features", href: "/#features" },
   { label: "Orders", href: "/orders"},
   { label: "About", href: "/about" },
   { label: "Contact Us", href: "/contact" },

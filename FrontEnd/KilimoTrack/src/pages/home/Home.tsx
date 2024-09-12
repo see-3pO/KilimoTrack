@@ -15,15 +15,14 @@ const Home = () => {
       <section id="benefits">
         <BenefitsSection />
       </section>
-
-      <section id="featured-products">
+      <FeaturedProducts />
+      {/* <section id="featured-products">
         <FeaturedProducts />
-      </section>
+      </section> */}
 
       <section id="faq">
         <FAQSection />
       </section>
-
     </>
   );
 };
